@@ -9,19 +9,19 @@ const servicos = [
     title: "Eventos Corporativos",
     description:
       "Coffee breaks, almoços executivos, coquetéis e confraternizações empresariais com o padrão que sua empresa merece.",
-    image: "bg-nobru-silver", // placeholder
-  },
-  {
-    title: "Casamentos",
-    description:
-      "Do brunch ao jantar de gala, criamos menus personalizados que contam a história do casal através da gastronomia.",
-    image: "bg-nobru-silver/80", // placeholder
+    image: "bg-nobru-silver",
   },
   {
     title: "Eventos Sociais",
     description:
       "Aniversários, batizados, formaturas e celebrações especiais com cardápios que encantam todos os convidados.",
-    image: "bg-nobru-silver/60", // placeholder
+    image: "bg-nobru-silver/80",
+  },
+  {
+    title: "Experiências Gastronômicas",
+    description:
+      "Jantares particulares e menus degustação exclusivos. Uma jornada sensorial criada especialmente para você.",
+    image: "bg-nobru-silver/60",
   },
 ];
 
@@ -33,7 +33,7 @@ const ServicosSection = () => {
     <section
       id="servicos"
       ref={ref}
-      className="py-32 lg:py-40 bg-nobru-cream"
+      className="py-32 lg:py-40 bg-section-depth"
     >
       <div className="container mx-auto px-6 md:px-12 lg:px-20">
         {/* Section Header */}
@@ -67,7 +67,7 @@ const ServicosSection = () => {
             >
               {/* Image Placeholder */}
               <div
-                className={`${servico.image} aspect-[4/3] rounded-2xl mb-6 overflow-hidden relative`}
+                className={`${servico.image} aspect-[4/3] rounded-2xl mb-6 overflow-hidden relative shadow-sm`}
               >
                 <div className="absolute inset-0 bg-nobru-teal/10 group-hover:bg-nobru-teal/20 transition-colors duration-500" />
               </div>
@@ -76,7 +76,7 @@ const ServicosSection = () => {
               <h3 className="font-serif text-xl lg:text-2xl text-primary mb-3">
                 {servico.title}
               </h3>
-              <p className="text-muted-foreground leading-relaxed text-sm lg:text-base mb-5">
+              <p className="text-primary/70 leading-relaxed text-sm lg:text-base mb-5">
                 {servico.description}
               </p>
 

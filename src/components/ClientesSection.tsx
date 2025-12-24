@@ -25,8 +25,10 @@ const ClientesSection = () => {
     <section
       id="clientes"
       ref={ref}
-      className="py-32 lg:py-40 bg-nobru-teal overflow-hidden"
+      className="py-32 lg:py-40 bg-nobru-teal overflow-hidden relative"
     >
+      {/* Subtle top gradient for depth */}
+      <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-primary/20 to-transparent pointer-events-none" />
       <div className="container mx-auto px-6 md:px-12 lg:px-20">
         {/* Section Header */}
         <motion.div

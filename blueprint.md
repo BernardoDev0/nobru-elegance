@@ -1,46 +1,34 @@
-# NOBRU Buffet - Blueprint de Design V2 (Luxo Moderno)
+# NOBRU Buffet - Blueprint de Design V3 (Refinado & Funcional)
 
-## Status Atual
+## Ajustes de Ambiente Visual
 
-- A Seção Hero está aprovada: background dark teal, tipografia elegante e formulário estilo "glass". Manter esse padrão.
+- **Menos Branco, Mais Textura:** Reduzir a predominância do branco puro. Alternar fundos entre `nobru-cream` (#F8F5F0) e `nobru-silver-grey` (#A9B1A9 com opacidade de 10%). 
 
-## Correções Imediatas
+- **Profundidade:** Adicionar gradientes suaves e sombras internas quase imperceptíveis para dar dimensão às seções.
 
-- **Botão Secundário (Hero):** O botão ao lado do principal está invisível no estado normal. Ele deve ter uma borda fina (border-1) e texto na cor `nobru-olive` ou `nobru-silver`. No hover, ele pode preencher.
+## Seção: Nossos Serviços (REVISADA)
 
-## Diretrizes de Design para Novas Seções
+- **Remover:** Casamentos.
 
-1.  **Espaçamento (O Segredo do Luxo):** Use `py-32` ou `py-40` entre seções. O respiro é fundamental.
+- **Categorias Oficiais:**
 
-2.  **Backgrounds:** Alterne entre o fundo principal `nobru-cream` (#F8F5F0) e seções com fundo `nobru-teal` (#0D3B3F) para criar ritmo, mas evite mudanças bruscas.
+    1. **Eventos Corporativos:** Coffee breaks, almoços executivos e convenções.
 
-3.  **Cards e Elementos:**
+    2. **Eventos Sociais:** Aniversários, celebrações e festas temáticas.
 
-    - Não usar sombras pesadas. Use `shadow-sm` ou apenas bordas muito sutis.
+    3. **Experiências Gastronômicas:** Jantares particulares e menus degustação exclusivos.
 
-    - Use cantos arredondados suaves (`rounded-xl` ou `rounded-2xl`).
+- **Imagens:** Manter placeholders cinza, mas com proporções mais elegantes.
 
-## Estrutura das Próximas Seções
+## Identidade e Logo
 
-### 1. Seção "Por Que Escolher" (Diferenciais)
+- **Componente de Logo:** Usar a imagem `nobru-logo.png` importada. O logo deve aparecer em versão clara no header (sobre fundos escuros) e pode ser invertido em contextos de fundo claro.
 
-- **Inspiração:** Os 3 pilares do site de referência.
+## Funcionalidade & Interação
 
-- **Design NOBRU:** Em vez de blocos grandes, use ícones de linha fina (Lucide icons) nas cores dourado/oliva. Títulos serifados, textos curtos. Layout limpo de 3 colunas com muito espaço entre elas. Fundo: `nobru-cream`.
+- **Botões:** Todos os botões devem ter estados de `:hover` e `:active` definidos. Implementar scroll suave (smooth scroll) para as âncoras das seções.
 
-### 2. Seção "Nossos Serviços" (Corporativo/Social)
-
-- **Inspiração:** Cards com foto e botão.
-
-- **Design NOBRU:** Cards minimalistas. A imagem deve ter um tratamento de cor suave. O título do serviço deve ser a estrela. Botões "fantasma" elegantes (cor oliva). Fundo: Pode ser um gradiente muito sutil ou o próprio `nobru-cream`.
-
-### 3. Seção Carrossel de Clientes (Confiança)
-
-- **Regra de Ouro:** Todos os logos devem estar em **grayscale (escala de cinza)** e com opacidade 60% por padrão.
-
-- **Interação:** Ao passar o mouse (hover), o logo ganha sua cor original e 100% de opacidade.
-
-- **Layout:** Um slider infinito e suave (`framer-motion`), sem setas de navegação pesadas.
+- **Formulário:** O botão "Solicitar Orçamento" deve disparar uma animação de sucesso ou um alerta funcional após a validação básica dos campos.
 
 ## Stack Técnica
 
