@@ -5,7 +5,7 @@ import { useRef } from "react";
 import { portfolioItems, PortfolioCategory, type PortfolioItem } from "../../data/portfolioData";
 import { Lightbox } from "../common/Lightbox";
 import { Button } from "@/components/ui/button";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, ChevronUp } from "lucide-react";
 
 const categories: PortfolioCategory[] = ["Todos", "Corporativos", "Drinks", "Sociais", "Coquetel"];
 
@@ -17,6 +17,8 @@ export const PortfolioSection = () => {
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
   const [showAll, setShowAll] = useState(false);
   const [isDesktop, setIsDesktop] = useState(false);
+  const scrollPositionRef = useRef<number>(0);
+  const buttonRef = useRef<HTMLButtonElement>(null);
 
   // Detectar tamanho da tela
   useEffect(() => {
@@ -59,6 +61,54 @@ export const PortfolioSection = () => {
     setActiveFilter(category);
     setShowAll(false);
   }, []);
+
+  // Manter posição do scroll quando expandir
+  useEffect(() => {
+    if (showAll) {
+      const savedScrollY = scrollPositionRef.current;
+      
+      // Função para forçar scroll
+      const forceScroll = () => {
+        window.scrollTo({ top: savedScrollY, behavior: 'auto' });
+      };
+      
+      // Prevenir scroll automático durante a renderização
+      let scrollLocked = true;
+      const preventScroll = () => {
+        if (scrollLocked) {
+          window.scrollTo({ top: savedScrollY, behavior: 'auto' });
+        }
+      };
+      
+      // Adicionar listener para prevenir scroll
+      window.addEventListener('scroll', preventScroll, { passive: false, capture: true });
+      
+      // Forçar scroll múltiplas vezes
+      forceScroll();
+      requestAnimationFrame(() => {
+        forceScroll();
+        requestAnimationFrame(() => {
+          forceScroll();
+          setTimeout(() => {
+            forceScroll();
+            setTimeout(() => {
+              forceScroll();
+              // Liberar scroll após um tempo
+              setTimeout(() => {
+                scrollLocked = false;
+                window.removeEventListener('scroll', preventScroll, { capture: true });
+              }, 600);
+            }, 100);
+          }, 50);
+        });
+      });
+      
+      return () => {
+        scrollLocked = false;
+        window.removeEventListener('scroll', preventScroll, { capture: true });
+      };
+    }
+  }, [showAll]);
 
   return (
     <section
@@ -131,6 +181,12 @@ export const PortfolioSection = () => {
                   style={{ willChange: "transform, opacity" }}
                   className="group relative aspect-square rounded-xl overflow-hidden cursor-pointer bg-nobru-silver/20"
                   onClick={() => handleImageClick(item)}
+                  onAnimationStart={() => {
+                    // Manter scroll durante animação
+                    if (isNewItem && scrollPositionRef.current) {
+                      window.scrollTo({ top: scrollPositionRef.current, behavior: 'auto' });
+                    }
+                  }}
                 >
                   <img
                     src={item.src}
@@ -160,22 +216,51 @@ export const PortfolioSection = () => {
           </motion.div>
         </AnimatePresence>
 
-        {/* Botão Veja Mais */}
-        {hasMoreItems && !showAll && (
+        {/* Botão Veja Mais / Ver Menos */}
+        {hasMoreItems && (
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 20 }}
             transition={{ duration: 0.5, delay: 0.2 }}
             className="flex justify-center mt-12"
           >
-            <Button
-              onClick={() => setShowAll(true)}
-              variant="outline"
-              className="border-2 border-nobru-olive/30 text-nobru-olive hover:bg-nobru-olive hover:text-primary font-medium tracking-wide px-8 py-6 rounded-full transition-all duration-500 hover:border-nobru-olive/50"
-            >
-              Veja Mais
-              <ChevronDown className="ml-2 h-5 w-5" />
-            </Button>
+            {!showAll ? (
+              <Button
+                ref={buttonRef}
+                onClick={() => {
+                  // Salvar posição atual do scroll antes de expandir
+                  scrollPositionRef.current = window.scrollY;
+                  setShowAll(true);
+                }}
+                variant="outline"
+                className="border-2 border-nobru-olive/30 text-nobru-olive hover:bg-nobru-olive hover:text-primary font-medium tracking-wide px-8 py-6 rounded-full transition-all duration-500 hover:border-nobru-olive/50"
+              >
+                Veja Mais
+                <ChevronDown className="ml-2 h-5 w-5" />
+              </Button>
+            ) : (
+              <Button
+                onClick={() => {
+                  setShowAll(false);
+                  // Scroll suave até o topo do grid após colapsar
+                  setTimeout(() => {
+                    const portfolioSection = document.getElementById("portfolio");
+                    if (portfolioSection) {
+                      const gridElement = portfolioSection.querySelector(".grid");
+                      if (gridElement) {
+                        gridElement.scrollIntoView({ behavior: "smooth", block: "start" });
+                      }
+                    }
+                  }, 100);
+                }}
+                variant="outline"
+                className="border-2 border-nobru-olive/30 text-nobru-olive hover:bg-nobru-olive hover:text-primary font-medium tracking-wide px-8 py-6 rounded-full transition-all duration-500 hover:border-nobru-olive/50"
+              >
+                Ver Menos
+                <ChevronUp className="ml-2 h-5 w-5" />
+              </Button>
+            )}
           </motion.div>
         )}
 
