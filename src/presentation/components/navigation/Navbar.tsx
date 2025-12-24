@@ -36,6 +36,42 @@ export const Navbar = () => {
     };
   }, []);
 
+  // Bloquear scroll quando menu mobile está aberto
+  useEffect(() => {
+    if (isOpen) {
+      // Salvar a posição atual do scroll
+      const scrollY = window.scrollY;
+      document.body.style.position = "fixed";
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.width = "100%";
+      document.body.style.overflow = "hidden";
+      document.body.dataset.scrollY = scrollY.toString();
+    } else {
+      // Restaurar a posição do scroll
+      const scrollY = document.body.dataset.scrollY;
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.width = "";
+      document.body.style.overflow = "";
+      if (scrollY) {
+        window.scrollTo(0, parseInt(scrollY, 10));
+      }
+      delete document.body.dataset.scrollY;
+    }
+    return () => {
+      // Cleanup: restaurar scroll se o componente for desmontado
+      const scrollY = document.body.dataset.scrollY;
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.width = "";
+      document.body.style.overflow = "";
+      if (scrollY) {
+        window.scrollTo(0, parseInt(scrollY, 10));
+      }
+      delete document.body.dataset.scrollY;
+    };
+  }, [isOpen]);
+
   const handleNavClick = useCallback((e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     scrollToSection(href);
@@ -90,46 +126,46 @@ export const Navbar = () => {
         </button>
       </div>
 
-      {/* Menu Mobile Overlay de Tela Cheia */}
+      {/* Menu Mobile Overlay de Tela Cheia Premium */}
       <AnimatePresence>
         {isOpen && (
-          <>
-            {/* Backdrop */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 md:hidden"
-              onClick={toggleMenu}
-            />
-            {/* Menu Overlay */}
-            <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
-              className="fixed inset-0 bg-nobru-teal/95 backdrop-blur-lg z-50 md:hidden flex items-center justify-center"
-              style={{ willChange: "transform, opacity" }}
-            >
-              <button
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 z-[9999] md:hidden"
+            onClick={toggleMenu}
+          >
+            {/* Overlay com Glassmorphism */}
+            <div className="absolute inset-0 bg-[#0D3B3F]/95 backdrop-blur-xl" />
+            
+            {/* Conteúdo do Menu */}
+            <div className="relative h-full w-full flex items-center justify-center">
+              {/* Botão de Fechar Elegante */}
+              <motion.button
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.8 }}
+                transition={{ duration: 0.3, delay: 0.1 }}
                 onClick={toggleMenu}
-                className="absolute top-6 right-6 text-nobru-cream hover:text-white transition-colors duration-300 p-2"
+                className="absolute top-6 right-6 z-10 p-3 rounded-full bg-nobru-cream/10 hover:bg-nobru-cream/20 backdrop-blur-sm text-nobru-cream hover:text-white transition-all duration-300 border border-nobru-cream/20 hover:border-nobru-cream/40"
                 aria-label="Fechar menu"
               >
-                <X size={28} />
-              </button>
+                <X size={28} strokeWidth={1.5} />
+              </motion.button>
               
-              <nav className="w-full px-6">
-                <ul className="flex flex-col items-center justify-center gap-8">
+              {/* Navegação Centralizada */}
+              <nav className="w-full px-6" onClick={(e) => e.stopPropagation()}>
+                <ul className="flex flex-col items-center justify-center space-y-8">
                   {navItems.map((item, index) => (
                     <motion.li
                       key={item.label}
-                      initial={{ opacity: 0, y: 30 }}
+                      initial={{ opacity: 0, y: 40 }}
                       animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: 30 }}
+                      exit={{ opacity: 0, y: 20 }}
                       transition={{
-                        duration: 0.5,
+                        duration: 0.6,
                         delay: index * 0.1,
                         ease: [0.25, 0.46, 0.45, 0.94],
                       }}
@@ -138,16 +174,17 @@ export const Navbar = () => {
                       <a
                         href={item.href}
                         onClick={(e) => handleNavClick(e, item.href)}
-                        className="font-serif text-3xl md:text-4xl text-nobru-cream hover:text-white transition-colors duration-300 tracking-wide uppercase block py-3"
+                        className="font-serif text-3xl md:text-4xl text-nobru-cream hover:text-white transition-all duration-300 tracking-wide uppercase block py-3 relative group"
                       >
-                        {item.label}
+                        <span className="relative z-10">{item.label}</span>
+                        <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-nobru-olive transition-all duration-500 group-hover:w-full" />
                       </a>
                     </motion.li>
                   ))}
                 </ul>
               </nav>
-            </motion.div>
-          </>
+            </div>
+          </motion.div>
         )}
       </AnimatePresence>
     </motion.nav>
