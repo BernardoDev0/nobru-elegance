@@ -48,22 +48,32 @@ const ServiceModalComponent = ({ isOpen, onClose, onViewPortfolio, service }: Se
       document.body.style.top = `-${scrollY}px`;
       document.body.style.width = "100%";
       document.body.style.overflow = "hidden";
+      // Salvar a posição no dataset para restaurar depois
+      document.body.dataset.scrollY = scrollY.toString();
     } else {
       // Restaurar a posição do scroll
-      const scrollY = document.body.style.top;
+      const scrollY = document.body.dataset.scrollY;
       document.body.style.position = "";
       document.body.style.top = "";
       document.body.style.width = "";
       document.body.style.overflow = "";
       if (scrollY) {
-        window.scrollTo(0, parseInt(scrollY || "0") * -1);
+        window.scrollTo(0, parseInt(scrollY, 10));
       }
+      // Limpar o dataset
+      delete document.body.dataset.scrollY;
     }
     return () => {
+      // Cleanup: restaurar scroll se o componente for desmontado com modal aberto
+      const scrollY = document.body.dataset.scrollY;
       document.body.style.position = "";
       document.body.style.top = "";
       document.body.style.width = "";
       document.body.style.overflow = "";
+      if (scrollY) {
+        window.scrollTo(0, parseInt(scrollY, 10));
+      }
+      delete document.body.dataset.scrollY;
     };
   }, [isOpen]);
 
