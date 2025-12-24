@@ -1,8 +1,10 @@
 import { motion } from "framer-motion";
-import { Calendar, Users, MapPin, Phone } from "lucide-react";
+import { useState } from "react";
+import { Calendar, Users, MapPin, Phone, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { useToast } from "@/hooks/use-toast";
 
 const fadeUpVariants = {
   hidden: { opacity: 0, y: 40 },
@@ -17,7 +19,63 @@ const fadeUpVariants = {
   }),
 };
 
+const scrollToSection = (href: string) => {
+  const element = document.querySelector(href);
+  if (element) {
+    element.scrollIntoView({ behavior: "smooth" });
+  }
+};
+
 const HeroSection = () => {
+  const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    phone: "",
+    date: "",
+    guests: "",
+    location: "",
+  });
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { id, value } = e.target;
+    setFormData((prev) => ({ ...prev, [id]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    // Basic validation
+    if (!formData.name || !formData.phone) {
+      toast({
+        title: "Campos obrigatórios",
+        description: "Por favor, preencha seu nome e telefone.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+    
+    // Simulate API call
+    await new Promise((resolve) => setTimeout(resolve, 1500));
+    
+    setIsSubmitting(false);
+    setIsSubmitted(true);
+    
+    toast({
+      title: "Orçamento solicitado!",
+      description: "Entraremos em contato em até 24h.",
+    });
+
+    // Reset after 3 seconds
+    setTimeout(() => {
+      setIsSubmitted(false);
+      setFormData({ name: "", phone: "", date: "", guests: "", location: "" });
+    }, 3000);
+  };
+
   return (
     <section
       id="inicio"
@@ -76,6 +134,7 @@ const HeroSection = () => {
             >
               <Button
                 size="lg"
+                onClick={() => scrollToSection("#servicos")}
                 className="bg-nobru-olive hover:bg-nobru-olive/90 text-primary font-medium tracking-wide px-8"
               >
                 Conheça Nossos Serviços
@@ -83,6 +142,7 @@ const HeroSection = () => {
               <Button
                 size="lg"
                 variant="outline"
+                onClick={() => scrollToSection("#servicos")}
                 className="border border-nobru-olive text-nobru-olive hover:bg-nobru-olive hover:text-primary font-medium tracking-wide px-8 transition-colors duration-300"
               >
                 Ver Cardápio
@@ -99,91 +159,129 @@ const HeroSection = () => {
             className="w-full max-w-md mx-auto lg:ml-auto"
           >
             <div className="glass-card rounded-2xl p-8 md:p-10">
-              <h3 className="font-serif text-2xl text-primary mb-2">
-                Solicite um Orçamento
-              </h3>
-              <p className="text-muted-foreground text-sm mb-8">
-                Preencha o formulário e entraremos em contato em até 24h
-              </p>
-
-              <form className="space-y-5">
-                <div className="space-y-2">
-                  <Label htmlFor="name" className="text-primary/80">
-                    Nome Completo
-                  </Label>
-                  <Input
-                    id="name"
-                    placeholder="Seu nome"
-                    className="bg-white/50 border-nobru-silver/50 focus:border-nobru-olive"
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="phone" className="text-primary/80">
-                    Telefone
-                  </Label>
-                  <div className="relative">
-                    <Phone className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                    <Input
-                      id="phone"
-                      placeholder="(00) 00000-0000"
-                      className="pl-10 bg-white/50 border-nobru-silver/50 focus:border-nobru-olive"
-                    />
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="date" className="text-primary/80">
-                      Data do Evento
-                    </Label>
-                    <div className="relative">
-                      <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                      <Input
-                        id="date"
-                        type="date"
-                        className="pl-10 bg-white/50 border-nobru-silver/50 focus:border-nobru-olive"
-                      />
-                    </div>
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="guests" className="text-primary/80">
-                      Convidados
-                    </Label>
-                    <div className="relative">
-                      <Users className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                      <Input
-                        id="guests"
-                        type="number"
-                        placeholder="100"
-                        className="pl-10 bg-white/50 border-nobru-silver/50 focus:border-nobru-olive"
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="location" className="text-primary/80">
-                    Local do Evento
-                  </Label>
-                  <div className="relative">
-                    <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                    <Input
-                      id="location"
-                      placeholder="Cidade ou endereço"
-                      className="pl-10 bg-white/50 border-nobru-silver/50 focus:border-nobru-olive"
-                    />
-                  </div>
-                </div>
-
-                <Button
-                  type="submit"
-                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-medium tracking-wide py-6"
-                  size="lg"
+              {isSubmitted ? (
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  className="text-center py-10"
                 >
-                  Solicitar Orçamento
-                </Button>
-              </form>
+                  <CheckCircle className="w-16 h-16 text-nobru-olive mx-auto mb-4" />
+                  <h3 className="font-serif text-2xl text-primary mb-2">
+                    Recebemos seu pedido!
+                  </h3>
+                  <p className="text-muted-foreground">
+                    Entraremos em contato em breve.
+                  </p>
+                </motion.div>
+              ) : (
+                <>
+                  <h3 className="font-serif text-2xl text-primary mb-2">
+                    Solicite um Orçamento
+                  </h3>
+                  <p className="text-muted-foreground text-sm mb-8">
+                    Preencha o formulário e entraremos em contato em até 24h
+                  </p>
+
+                  <form onSubmit={handleSubmit} className="space-y-5">
+                    <div className="space-y-2">
+                      <Label htmlFor="name" className="text-primary/80">
+                        Nome Completo *
+                      </Label>
+                      <Input
+                        id="name"
+                        placeholder="Seu nome"
+                        value={formData.name}
+                        onChange={handleInputChange}
+                        className="bg-white/50 border-nobru-silver/50 focus:border-nobru-olive"
+                      />
+                    </div>
+
+                    <div className="space-y-2">
+                      <Label htmlFor="phone" className="text-primary/80">
+                        Telefone *
+                      </Label>
+                      <div className="relative">
+                        <Phone className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                        <Input
+                          id="phone"
+                          placeholder="(00) 00000-0000"
+                          value={formData.phone}
+                          onChange={handleInputChange}
+                          className="pl-10 bg-white/50 border-nobru-silver/50 focus:border-nobru-olive"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-2 gap-4">
+                      <div className="space-y-2">
+                        <Label htmlFor="date" className="text-primary/80">
+                          Data do Evento
+                        </Label>
+                        <div className="relative">
+                          <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                          <Input
+                            id="date"
+                            type="date"
+                            value={formData.date}
+                            onChange={handleInputChange}
+                            className="pl-10 bg-white/50 border-nobru-silver/50 focus:border-nobru-olive"
+                          />
+                        </div>
+                      </div>
+                      <div className="space-y-2">
+                        <Label htmlFor="guests" className="text-primary/80">
+                          Convidados
+                        </Label>
+                        <div className="relative">
+                          <Users className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                          <Input
+                            id="guests"
+                            type="number"
+                            placeholder="100"
+                            value={formData.guests}
+                            onChange={handleInputChange}
+                            className="pl-10 bg-white/50 border-nobru-silver/50 focus:border-nobru-olive"
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="space-y-2">
+                      <Label htmlFor="location" className="text-primary/80">
+                        Local do Evento
+                      </Label>
+                      <div className="relative">
+                        <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                        <Input
+                          id="location"
+                          placeholder="Cidade ou endereço"
+                          value={formData.location}
+                          onChange={handleInputChange}
+                          className="pl-10 bg-white/50 border-nobru-silver/50 focus:border-nobru-olive"
+                        />
+                      </div>
+                    </div>
+
+                    <Button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-medium tracking-wide py-6 disabled:opacity-70"
+                      size="lg"
+                    >
+                      {isSubmitting ? (
+                        <motion.span
+                          animate={{ opacity: [1, 0.5, 1] }}
+                          transition={{ duration: 1, repeat: Infinity }}
+                        >
+                          Enviando...
+                        </motion.span>
+                      ) : (
+                        "Solicitar Orçamento"
+                      )}
+                    </Button>
+                  </form>
+                </>
+              )}
             </div>
           </motion.div>
         </div>

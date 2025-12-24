@@ -130,6 +130,31 @@
     );
   }
 
+  /* Section background variants */
+  .bg-section-light {
+    background: linear-gradient(
+      180deg,
+      hsl(var(--nobru-cream)) 0%,
+      hsl(var(--nobru-silver) / 0.08) 50%,
+      hsl(var(--nobru-cream)) 100%
+    );
+  }
+
+  .bg-section-silver {
+    background: linear-gradient(
+      180deg,
+      hsl(var(--nobru-silver) / 0.12) 0%,
+      hsl(var(--nobru-silver) / 0.06) 50%,
+      hsl(var(--nobru-silver) / 0.12) 100%
+    );
+  }
+
+  .bg-section-depth {
+    background: 
+      radial-gradient(ellipse at 30% 0%, hsl(var(--nobru-olive) / 0.04) 0%, transparent 50%),
+      linear-gradient(180deg, hsl(var(--nobru-cream)) 0%, hsl(var(--nobru-silver) / 0.1) 100%);
+  }
+
   /* Elegant button hover */
   .btn-elegant {
     @apply relative overflow-hidden transition-all duration-300;

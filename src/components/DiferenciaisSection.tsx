@@ -14,7 +14,7 @@ const diferenciais = [
     icon: Award,
     title: "Experiência de 15 Anos",
     description:
-      "Mais de mil eventos realizados com excelência, desde casamentos íntimos até grandes celebrações corporativas.",
+      "Mais de mil eventos realizados com excelência, desde encontros corporativos até grandes celebrações sociais.",
   },
   {
     icon: Heart,
@@ -32,7 +32,7 @@ const DiferenciaisSection = () => {
     <section
       id="diferenciais"
       ref={ref}
-      className="py-32 lg:py-40 bg-nobru-cream"
+      className="py-32 lg:py-40 bg-section-silver"
     >
       <div className="container mx-auto px-6 md:px-12 lg:px-20">
         {/* Section Header */}
@@ -64,7 +64,7 @@ const DiferenciaisSection = () => {
               }}
               className="text-center"
             >
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full border border-nobru-olive/30 mb-8">
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full border border-nobru-olive/40 bg-nobru-cream/50 mb-8 shadow-sm">
                 <item.icon
                   className="w-7 h-7 text-nobru-olive"
                   strokeWidth={1.5}
@@ -73,7 +73,7 @@ const DiferenciaisSection = () => {
               <h3 className="font-serif text-xl lg:text-2xl text-primary mb-4">
                 {item.title}
               </h3>
-              <p className="text-muted-foreground leading-relaxed text-sm lg:text-base">
+              <p className="text-primary/70 leading-relaxed text-sm lg:text-base">
                 {item.description}
               </p>
             </motion.div>
