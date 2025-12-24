@@ -13,12 +13,12 @@ const servicos = [
       "Coffee breaks, almoços executivos, coquetéis e confraternizações empresariais com o padrão que sua empresa merece.",
     fullDescription:
       "Oferecemos soluções completas para eventos corporativos, desde coffee breaks matinais até jantares executivos. Nossa equipe entende a importância de impressionar clientes e parceiros, por isso cada detalhe é cuidadosamente planejado. Trabalhamos com cardápios personalizados que refletem a identidade da sua empresa, sempre com ingredientes de primeira qualidade e apresentação impecável.",
-    image: "/src/imagens/DSC00094.JPG",
+    image: "/imagens/DSC00094.JPG",
     images: [
-      "/src/imagens/DSC00001 (1).JPG",
-      "/src/imagens/DSC00002 (1).JPG",
-      "/src/imagens/DSC00005 (1).JPG",
-      "/src/imagens/DSC00007 (1).JPG",
+      "/imagens/DSC00001 (1).JPG",
+      "/imagens/DSC00002 (1).JPG",
+      "/imagens/DSC00005 (1).JPG",
+      "/imagens/DSC00007 (1).JPG",
     ],
   },
   {
@@ -28,12 +28,12 @@ const servicos = [
       "Aniversários, batizados, formaturas e celebrações especiais com cardápios que encantam todos os convidados.",
     fullDescription:
       "Transformamos momentos especiais em memórias inesquecíveis. Seja um aniversário íntimo ou uma grande celebração, criamos cardápios que agradam a todos os paladares. Nossa experiência de 15 anos nos permite entender que cada evento social é único, e por isso oferecemos personalização completa, desde o menu até a decoração da mesa.",
-    image: "/src/imagens/DSC00008.JPG",
+    image: "/imagens/DSC00008.JPG",
     images: [
-      "/src/imagens/DSC00008.JPG",
-      "/src/imagens/DSC00018.JPG",
-      "/src/imagens/DSC00036.JPG",
-      "/src/imagens/DSC00037.JPG",
+      "/imagens/DSC00008.JPG",
+      "/imagens/DSC00018.JPG",
+      "/imagens/DSC00036.JPG",
+      "/imagens/DSC00037.JPG",
     ],
   },
   {
@@ -43,12 +43,12 @@ const servicos = [
       "Jantares particulares e menus degustação exclusivos. Uma jornada sensorial criada especialmente para você.",
     fullDescription:
       "Para os verdadeiros apreciadores da gastronomia, oferecemos experiências únicas e exclusivas. Nossos menus degustação são criados especialmente para cada ocasião, combinando sabores sofisticados com apresentação artística. Cada prato conta uma história, e nossa equipe está sempre pronta para criar momentos gastronômicos memoráveis em ambientes íntimos e elegantes.",
-    image: "/src/imagens/Carrossel Botafogo IBIUNA (5).jpg",
+    image: "/imagens/Carrossel Botafogo IBIUNA (5).jpg",
     images: [
-      "/src/imagens/Carrossel Botafogo IBIUNA (5).jpg",
-      "/src/imagens/Carrossel Botafogo IBIUNA (11).jpg",
-      "/src/imagens/Carrossel Botafogo IBIUNA (3).jpg",
-      "/src/imagens/Carrossel Botafogo IBIUNA (4).jpg",
+      "/imagens/Carrossel Botafogo IBIUNA (5).jpg",
+      "/imagens/Carrossel Botafogo IBIUNA (11).jpg",
+      "/imagens/Carrossel Botafogo IBIUNA (3).jpg",
+      "/imagens/Carrossel Botafogo IBIUNA (4).jpg",
     ],
   },
 ];

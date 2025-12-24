@@ -15,7 +15,7 @@ export const portfolioItems: PortfolioItem[] = [
   {
     id: "1",
     category: "Corporativos",
-    src: "/src/imagens/DSC00001 (1).JPG",
+    src: "/imagens/DSC00001 (1).JPG",
     title: "Coffee Break Executivo",
     event: "Coquetel Premium",
     location: "Rio de Janeiro",
@@ -24,7 +24,7 @@ export const portfolioItems: PortfolioItem[] = [
   {
     id: "2",
     category: "Corporativos",
-    src: "/src/imagens/DSC00002 (1).JPG",
+    src: "/imagens/DSC00002 (1).JPG",
     title: "Almoço de Negócios",
     event: "Coquetel Premium",
     location: "Rio de Janeiro",
@@ -33,7 +33,7 @@ export const portfolioItems: PortfolioItem[] = [
   {
     id: "3",
     category: "Corporativos",
-    src: "/src/imagens/DSC00005 (1).JPG",
+    src: "/imagens/DSC00005 (1).JPG",
     title: "Convenção Empresarial",
     event: "Coquetel Premium",
     location: "Rio de Janeiro",
@@ -42,7 +42,7 @@ export const portfolioItems: PortfolioItem[] = [
   {
     id: "4",
     category: "Corporativos",
-    src: "/src/imagens/DSC00007 (1).JPG",
+    src: "/imagens/DSC00007 (1).JPG",
     title: "Cocktail de Networking",
     event: "Coquetel Premium",
     location: "Rio de Janeiro",
@@ -51,7 +51,7 @@ export const portfolioItems: PortfolioItem[] = [
   {
     id: "5",
     category: "Corporativos",
-    src: "/src/imagens/DSC00009.JPG",
+    src: "/imagens/DSC00009.JPG",
     title: "Jantar de Gala",
     event: "Coquetel Premium",
     location: "Rio de Janeiro",
@@ -60,7 +60,7 @@ export const portfolioItems: PortfolioItem[] = [
   {
     id: "6",
     category: "Corporativos",
-    src: "/src/imagens/DSC00011 (1).JPG",
+    src: "/imagens/DSC00011 (1).JPG",
     title: "Workshop Empresarial",
     event: "Coquetel Premium",
     location: "Rio de Janeiro",
@@ -71,7 +71,7 @@ export const portfolioItems: PortfolioItem[] = [
   {
     id: "7",
     category: "Drinks",
-    src: "/src/imagens/DSC00013 (1).JPG",
+    src: "/imagens/DSC00013 (1).JPG",
     title: "Gin Tônica Premium",
     event: "Coquetel Premium",
     location: "Rio de Janeiro",
@@ -80,7 +80,7 @@ export const portfolioItems: PortfolioItem[] = [
   {
     id: "8",
     category: "Drinks",
-    src: "/src/imagens/DSC00016 (1).JPG",
+    src: "/imagens/DSC00016 (1).JPG",
     title: "Coquetelaria Artesanal",
     event: "Coquetel Premium",
     location: "Rio de Janeiro",
@@ -89,7 +89,7 @@ export const portfolioItems: PortfolioItem[] = [
   {
     id: "9",
     category: "Drinks",
-    src: "/src/imagens/DSC00021.JPG",
+    src: "/imagens/DSC00021.JPG",
     title: "Drinks Signature",
     event: "Coquetel Premium",
     location: "Rio de Janeiro",
@@ -98,7 +98,7 @@ export const portfolioItems: PortfolioItem[] = [
   {
     id: "10",
     category: "Drinks",
-    src: "/src/imagens/DSC00033.JPG",
+    src: "/imagens/DSC00033.JPG",
     title: "Bar de Drinks Premium",
     event: "Coquetel Premium",
     location: "Rio de Janeiro",
@@ -107,7 +107,7 @@ export const portfolioItems: PortfolioItem[] = [
   {
     id: "11",
     category: "Drinks",
-    src: "/src/imagens/DSC00034.JPG",
+    src: "/imagens/DSC00034.JPG",
     title: "Mixologia de Luxo",
     event: "Coquetel Premium",
     location: "Rio de Janeiro",
@@ -116,7 +116,7 @@ export const portfolioItems: PortfolioItem[] = [
   {
     id: "12",
     category: "Drinks",
-    src: "/src/imagens/DSC00035.JPG",
+    src: "/imagens/DSC00035.JPG",
     title: "Coquetelaria Premium",
     event: "Coquetel Premium",
     location: "Rio de Janeiro",
@@ -127,7 +127,7 @@ export const portfolioItems: PortfolioItem[] = [
   {
     id: "13",
     category: "Sociais",
-    src: "/src/imagens/DSC00008.JPG",
+    src: "/imagens/DSC00008.JPG",
     title: "Aniversário de 50 Anos",
     event: "Coquetel Premium",
     location: "Rio de Janeiro",
@@ -136,7 +136,7 @@ export const portfolioItems: PortfolioItem[] = [
   {
     id: "14",
     category: "Sociais",
-    src: "/src/imagens/DSC00018.JPG",
+    src: "/imagens/DSC00018.JPG",
     title: "Formatura Universitária",
     event: "Coquetel Premium",
     location: "Rio de Janeiro",
@@ -145,7 +145,7 @@ export const portfolioItems: PortfolioItem[] = [
   {
     id: "15",
     category: "Sociais",
-    src: "/src/imagens/DSC00036.JPG",
+    src: "/imagens/DSC00036.JPG",
     title: "Batizado Elegante",
     event: "Coquetel Premium",
     location: "Rio de Janeiro",
@@ -154,7 +154,7 @@ export const portfolioItems: PortfolioItem[] = [
   {
     id: "16",
     category: "Sociais",
-    src: "/src/imagens/DSC00037.JPG",
+    src: "/imagens/DSC00037.JPG",
     title: "Aniversário Infantil",
     event: "Coquetel Premium",
     location: "Rio de Janeiro",
@@ -163,7 +163,7 @@ export const portfolioItems: PortfolioItem[] = [
   {
     id: "17",
     category: "Sociais",
-    src: "/src/imagens/DSC00040.JPG",
+    src: "/imagens/DSC00040.JPG",
     title: "Casamento Íntimo",
     event: "Coquetel Premium",
     location: "Rio de Janeiro",
@@ -172,7 +172,7 @@ export const portfolioItems: PortfolioItem[] = [
   {
     id: "18",
     category: "Sociais",
-    src: "/src/imagens/DSC00045.JPG",
+    src: "/imagens/DSC00045.JPG",
     title: "Festa de 15 Anos",
     event: "Coquetel Premium",
     location: "Rio de Janeiro",
@@ -183,7 +183,7 @@ export const portfolioItems: PortfolioItem[] = [
   {
     id: "19",
     category: "Coquetel",
-    src: "/src/imagens/DSC00047.JPG",
+    src: "/imagens/DSC00047.JPG",
     title: "Coquetel de Inauguração",
     event: "Coquetel Premium",
     location: "Rio de Janeiro",
@@ -192,7 +192,7 @@ export const portfolioItems: PortfolioItem[] = [
   {
     id: "20",
     category: "Coquetel",
-    src: "/src/imagens/DSC00048.JPG",
+    src: "/imagens/DSC00048.JPG",
     title: "Recepção Elegante",
     event: "Coquetel Premium",
     location: "Rio de Janeiro",
@@ -201,7 +201,7 @@ export const portfolioItems: PortfolioItem[] = [
   {
     id: "21",
     category: "Coquetel",
-    src: "/src/imagens/DSC00057.JPG",
+    src: "/imagens/DSC00057.JPG",
     title: "Coquetel Premium",
     event: "Coquetel Premium",
     location: "Rio de Janeiro",
@@ -210,7 +210,7 @@ export const portfolioItems: PortfolioItem[] = [
   {
     id: "22",
     category: "Coquetel",
-    src: "/src/imagens/DSC00059.JPG",
+    src: "/imagens/DSC00059.JPG",
     title: "Recepção de Gala",
     event: "Coquetel Premium",
     location: "Rio de Janeiro",
@@ -219,7 +219,7 @@ export const portfolioItems: PortfolioItem[] = [
   {
     id: "23",
     category: "Coquetel",
-    src: "/src/imagens/DSC00060.JPG",
+    src: "/imagens/DSC00060.JPG",
     title: "Coquetel Corporativo",
     event: "Coquetel Premium",
     location: "Rio de Janeiro",
@@ -228,7 +228,7 @@ export const portfolioItems: PortfolioItem[] = [
   {
     id: "24",
     category: "Coquetel",
-    src: "/src/imagens/DSC00061.JPG",
+    src: "/imagens/DSC00061.JPG",
     title: "Recepção VIP",
     event: "Coquetel Premium",
     location: "Rio de Janeiro",

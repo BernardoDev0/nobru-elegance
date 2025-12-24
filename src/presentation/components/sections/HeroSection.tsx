@@ -184,7 +184,7 @@ export const HeroSection = () => {
       {/* Background Image */}
       <div className="absolute inset-0">
         <img
-          src="/src/imagens/DSC00002 (1).JPG"
+          src="/imagens/DSC00002 (1).JPG"
           alt="NOBRU Buffet - Experiências Gastronômicas"
           className="w-full h-full object-cover object-center"
           loading="eager"
