@@ -83,7 +83,7 @@ const HeroSection = () => {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-nobru-cream/30 text-nobru-cream hover:bg-nobru-cream/10 font-medium tracking-wide px-8"
+                className="border border-nobru-olive text-nobru-olive hover:bg-nobru-olive hover:text-primary font-medium tracking-wide px-8 transition-colors duration-300"
               >
                 Ver Cardápio
               </Button>
