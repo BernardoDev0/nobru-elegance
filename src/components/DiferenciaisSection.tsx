@@ -1,0 +1,87 @@
+import { motion } from "framer-motion";
+import { useInView } from "framer-motion";
+import { useRef } from "react";
+import { Leaf, Award, Heart } from "lucide-react";
+
+const diferenciais = [
+  {
+    icon: Leaf,
+    title: "Ingredientes Selecionados",
+    description:
+      "Trabalhamos apenas com fornecedores locais e ingredientes frescos, garantindo qualidade e sabor em cada prato.",
+  },
+  {
+    icon: Award,
+    title: "Experiência de 15 Anos",
+    description:
+      "Mais de mil eventos realizados com excelência, desde casamentos íntimos até grandes celebrações corporativas.",
+  },
+  {
+    icon: Heart,
+    title: "Atendimento Personalizado",
+    description:
+      "Cada evento é único. Nossa equipe dedica atenção especial para entender e superar suas expectativas.",
+  },
+];
+
+const DiferenciaisSection = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+  return (
+    <section
+      id="diferenciais"
+      ref={ref}
+      className="py-32 lg:py-40 bg-nobru-cream"
+    >
+      <div className="container mx-auto px-6 md:px-12 lg:px-20">
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="text-center mb-20 lg:mb-28"
+        >
+          <span className="inline-block text-nobru-olive text-sm font-medium tracking-[0.3em] uppercase mb-4">
+            Por Que Escolher
+          </span>
+          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-primary leading-tight">
+            A arte de servir com excelência
+          </h2>
+        </motion.div>
+
+        {/* 3 Columns */}
+        <div className="grid md:grid-cols-3 gap-16 lg:gap-24">
+          {diferenciais.map((item, index) => (
+            <motion.div
+              key={item.title}
+              initial={{ opacity: 0, y: 40 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{
+                duration: 0.8,
+                delay: 0.2 + index * 0.15,
+                ease: "easeOut",
+              }}
+              className="text-center"
+            >
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full border border-nobru-olive/30 mb-8">
+                <item.icon
+                  className="w-7 h-7 text-nobru-olive"
+                  strokeWidth={1.5}
+                />
+              </div>
+              <h3 className="font-serif text-xl lg:text-2xl text-primary mb-4">
+                {item.title}
+              </h3>
+              <p className="text-muted-foreground leading-relaxed text-sm lg:text-base">
+                {item.description}
+              </p>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default DiferenciaisSection;
