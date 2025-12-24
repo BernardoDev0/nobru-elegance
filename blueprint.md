@@ -1,37 +1,16 @@
-# NOBRU Buffet - Blueprint de Design V3 (Refinado & Funcional)
+## Otimização Mobile & UX de Luxo
+- **Hero (Início):** A imagem de fundo deve usar `object-cover` e `object-position: center`. No mobile, garantir que o foco da imagem não corte elementos vitais. Adicionar um overlay de gradiente para garantir que o texto branco seja 100% legível.
+- **Menu de Navegação Mobile:** - Substituir o menu padrão por um overlay de tela cheia (Full-screen Overlay).
+  - Background: `bg-nobru-teal/95` com `backdrop-blur-lg`.
+  - Animação: Itens do menu devem ter um "staggered fade-in" (aparecer um por um de baixo para cima) usando Framer Motion.
+  - Performance: Usar `will-change-transform` para evitar engasgos na animação.
 
-## Ajustes de Ambiente Visual
+## Galeria de Portfólio Inteligente
+- **Limitação de Exibição:** Mostrar apenas 4 imagens inicialmente no mobile e 6 no desktop.
+- **Botão "Veja Mais":** Um botão elegante com borda fina (outline) que, ao ser clicado, expande o grid suavemente.
+- **Grid:** Usar `aspect-square` para as miniaturas para manter a ordem visual.
 
-- **Menos Branco, Mais Textura:** Reduzir a predominância do branco puro. Alternar fundos entre `nobru-cream` (#F8F5F0) e `nobru-silver-grey` (#A9B1A9 com opacidade de 10%). 
-
-- **Profundidade:** Adicionar gradientes suaves e sombras internas quase imperceptíveis para dar dimensão às seções.
-
-## Seção: Nossos Serviços (REVISADA)
-
-- **Remover:** Casamentos.
-
-- **Categorias Oficiais:**
-
-    1. **Eventos Corporativos:** Coffee breaks, almoços executivos e convenções.
-
-    2. **Eventos Sociais:** Aniversários, celebrações e festas temáticas.
-
-    3. **Experiências Gastronômicas:** Jantares particulares e menus degustação exclusivos.
-
-- **Imagens:** Manter placeholders cinza, mas com proporções mais elegantes.
-
-## Identidade e Logo
-
-- **Componente de Logo:** Usar a imagem `nobru-logo.png` importada. O logo deve aparecer em versão clara no header (sobre fundos escuros) e pode ser invertido em contextos de fundo claro.
-
-## Funcionalidade & Interação
-
-- **Botões:** Todos os botões devem ter estados de `:hover` e `:active` definidos. Implementar scroll suave (smooth scroll) para as âncoras das seções.
-
-- **Formulário:** O botão "Solicitar Orçamento" deve disparar uma animação de sucesso ou um alerta funcional após a validação básica dos campos.
-
-## Stack Técnica
-
-- React + Tailwind CSS + Framer Motion + Lucide Icons.
-
-- Manter animações de entrada suaves (fade-in-up) conforme o scroll.
+## Validação e Estética de Formulário (Revisão)
+- **Data Picker:** Proibido usar o nativo do navegador. Implementar um calendário customizado estilo "Popover" em `nobru-teal`.
+- **Formato:** Brasileiro (DD/MM/YYYY).
+- **Máscaras:** Telefone `(99) 99999-9999` e Data `99/99/9999`.

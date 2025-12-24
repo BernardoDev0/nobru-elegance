@@ -1,0 +1,238 @@
+export type PortfolioCategory = "Todos" | "Corporativos" | "Drinks" | "Sociais" | "Coquetel";
+
+export interface PortfolioItem {
+  id: string;
+  category: PortfolioCategory;
+  src: string;
+  title: string;
+  event?: string;
+  location?: string;
+  date?: string;
+}
+
+export const portfolioItems: PortfolioItem[] = [
+  // Corporativos
+  {
+    id: "1",
+    category: "Corporativos",
+    src: "/src/imagens/DSC00001 (1).JPG",
+    title: "Coffee Break Executivo",
+    event: "Coquetel Premium",
+    location: "Rio de Janeiro",
+    date: "Dez 2024",
+  },
+  {
+    id: "2",
+    category: "Corporativos",
+    src: "/src/imagens/DSC00002 (1).JPG",
+    title: "Almoço de Negócios",
+    event: "Coquetel Premium",
+    location: "Rio de Janeiro",
+    date: "Nov 2024",
+  },
+  {
+    id: "3",
+    category: "Corporativos",
+    src: "/src/imagens/DSC00005 (1).JPG",
+    title: "Convenção Empresarial",
+    event: "Coquetel Premium",
+    location: "Rio de Janeiro",
+    date: "Out 2024",
+  },
+  {
+    id: "4",
+    category: "Corporativos",
+    src: "/src/imagens/DSC00007 (1).JPG",
+    title: "Cocktail de Networking",
+    event: "Coquetel Premium",
+    location: "Rio de Janeiro",
+    date: "Set 2024",
+  },
+  {
+    id: "5",
+    category: "Corporativos",
+    src: "/src/imagens/DSC00009.JPG",
+    title: "Jantar de Gala",
+    event: "Coquetel Premium",
+    location: "Rio de Janeiro",
+    date: "Ago 2024",
+  },
+  {
+    id: "6",
+    category: "Corporativos",
+    src: "/src/imagens/DSC00011 (1).JPG",
+    title: "Workshop Empresarial",
+    event: "Coquetel Premium",
+    location: "Rio de Janeiro",
+    date: "Jul 2024",
+  },
+
+  // Drinks
+  {
+    id: "7",
+    category: "Drinks",
+    src: "/src/imagens/DSC00013 (1).JPG",
+    title: "Gin Tônica Premium",
+    event: "Coquetel Premium",
+    location: "Rio de Janeiro",
+    date: "Dez 2024",
+  },
+  {
+    id: "8",
+    category: "Drinks",
+    src: "/src/imagens/DSC00016 (1).JPG",
+    title: "Coquetelaria Artesanal",
+    event: "Coquetel Premium",
+    location: "Rio de Janeiro",
+    date: "Nov 2024",
+  },
+  {
+    id: "9",
+    category: "Drinks",
+    src: "/src/imagens/DSC00021.JPG",
+    title: "Drinks Signature",
+    event: "Coquetel Premium",
+    location: "Rio de Janeiro",
+    date: "Out 2024",
+  },
+  {
+    id: "10",
+    category: "Drinks",
+    src: "/src/imagens/DSC00033.JPG",
+    title: "Bar de Drinks Premium",
+    event: "Coquetel Premium",
+    location: "Rio de Janeiro",
+    date: "Set 2024",
+  },
+  {
+    id: "11",
+    category: "Drinks",
+    src: "/src/imagens/DSC00034.JPG",
+    title: "Mixologia de Luxo",
+    event: "Coquetel Premium",
+    location: "Rio de Janeiro",
+    date: "Ago 2024",
+  },
+  {
+    id: "12",
+    category: "Drinks",
+    src: "/src/imagens/DSC00035.JPG",
+    title: "Coquetelaria Premium",
+    event: "Coquetel Premium",
+    location: "Rio de Janeiro",
+    date: "Jul 2024",
+  },
+
+  // Sociais
+  {
+    id: "13",
+    category: "Sociais",
+    src: "/src/imagens/DSC00008.JPG",
+    title: "Aniversário de 50 Anos",
+    event: "Coquetel Premium",
+    location: "Rio de Janeiro",
+    date: "Dez 2024",
+  },
+  {
+    id: "14",
+    category: "Sociais",
+    src: "/src/imagens/DSC00018.JPG",
+    title: "Formatura Universitária",
+    event: "Coquetel Premium",
+    location: "Rio de Janeiro",
+    date: "Nov 2024",
+  },
+  {
+    id: "15",
+    category: "Sociais",
+    src: "/src/imagens/DSC00036.JPG",
+    title: "Batizado Elegante",
+    event: "Coquetel Premium",
+    location: "Rio de Janeiro",
+    date: "Out 2024",
+  },
+  {
+    id: "16",
+    category: "Sociais",
+    src: "/src/imagens/DSC00037.JPG",
+    title: "Aniversário Infantil",
+    event: "Coquetel Premium",
+    location: "Rio de Janeiro",
+    date: "Set 2024",
+  },
+  {
+    id: "17",
+    category: "Sociais",
+    src: "/src/imagens/DSC00040.JPG",
+    title: "Casamento Íntimo",
+    event: "Coquetel Premium",
+    location: "Rio de Janeiro",
+    date: "Ago 2024",
+  },
+  {
+    id: "18",
+    category: "Sociais",
+    src: "/src/imagens/DSC00045.JPG",
+    title: "Festa de 15 Anos",
+    event: "Coquetel Premium",
+    location: "Rio de Janeiro",
+    date: "Jul 2024",
+  },
+
+  // Coquetel
+  {
+    id: "19",
+    category: "Coquetel",
+    src: "/src/imagens/DSC00047.JPG",
+    title: "Coquetel de Inauguração",
+    event: "Coquetel Premium",
+    location: "Rio de Janeiro",
+    date: "Dez 2024",
+  },
+  {
+    id: "20",
+    category: "Coquetel",
+    src: "/src/imagens/DSC00048.JPG",
+    title: "Recepção Elegante",
+    event: "Coquetel Premium",
+    location: "Rio de Janeiro",
+    date: "Nov 2024",
+  },
+  {
+    id: "21",
+    category: "Coquetel",
+    src: "/src/imagens/DSC00057.JPG",
+    title: "Coquetel Premium",
+    event: "Coquetel Premium",
+    location: "Rio de Janeiro",
+    date: "Out 2024",
+  },
+  {
+    id: "22",
+    category: "Coquetel",
+    src: "/src/imagens/DSC00059.JPG",
+    title: "Recepção de Gala",
+    event: "Coquetel Premium",
+    location: "Rio de Janeiro",
+    date: "Set 2024",
+  },
+  {
+    id: "23",
+    category: "Coquetel",
+    src: "/src/imagens/DSC00060.JPG",
+    title: "Coquetel Corporativo",
+    event: "Coquetel Premium",
+    location: "Rio de Janeiro",
+    date: "Ago 2024",
+  },
+  {
+    id: "24",
+    category: "Coquetel",
+    src: "/src/imagens/DSC00061.JPG",
+    title: "Recepção VIP",
+    event: "Coquetel Premium",
+    location: "Rio de Janeiro",
+    date: "Jul 2024",
+  },
+];
+
